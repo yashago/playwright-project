@@ -28,7 +28,7 @@ jobs:
         run: playwright install --with-deps chromium
 
       - name: Run tests
-        run: pytest
+        run: pytest -sv
 
       - name: Upload report and failure artifacts
         if: always()

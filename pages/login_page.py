@@ -33,12 +33,15 @@ class LoginPage(BasePage):
 
     @property
     def greeting(self) -> Locator:
+        print("Looking for GitHub greeting...")
         return self.page.get_by_text(re.compile(r"^Good (morning|afternoon|evening)"))
 
     def clickSignIn(self) -> None:
+        print("Clickin on Sign In button")
         self.signIn.click()
         self.page.wait_for_url("**/login")
 
     def signInWithCredentials(self) -> None:
+            print("Signing in...")
             self.signInButton.click()
             self.page.wait_for_load_state('domcontentloaded')
