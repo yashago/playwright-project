@@ -3,7 +3,7 @@ import re
 import pytest
 from playwright.sync_api import Page, expect
 from pages.login_page import LoginPage
-from utilities.config import GITHUB_EMAIL, GITHUB_PASSWORD, GITHUB_USERNAME
+from utilities.config import EMAIL_GITHUB, PASSWORD_GITHUB, GITHUB_USERNAME
 
 
 @pytest.mark.smoke
@@ -12,11 +12,11 @@ def test_sign_in_to_gmail(page: Page):
     signInPage.open()
     signInPage.clickSignIn()
 
-    assert GITHUB_EMAIL is not None
-    assert GITHUB_PASSWORD is not None
+    assert EMAIL_GITHUB is not None
+    assert PASSWORD_GITHUB is not None
 
-    signInPage.emailInput.fill(GITHUB_EMAIL)
-    signInPage.passwordInput.fill(GITHUB_PASSWORD)
+    signInPage.emailInput.fill(EMAIL_GITHUB)
+    signInPage.passwordInput.fill(PASSWORD_GITHUB)
     signInPage.signInWithCredentials()
 
     expect(signInPage.greeting).to_be_visible()

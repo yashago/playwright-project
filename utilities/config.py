@@ -7,6 +7,6 @@ DEFAULT_TIMEOUT_MS = int(os.getenv("DEFAULT_TIMEOUT_MS", "15000"))
 load_dotenv()  # loads .env if it exists; real environment variables take priority
 
 GITHUB_URL = "https://www.github.com"
-GITHUB_EMAIL = os.getenv("GITHUB_EMAIL")
-GITHUB_PASSWORD = os.getenv("GITHUB_PASSWORD")
+EMAIL_GITHUB = os.getenv("EMAIL_GITHUB")
+PASSWORD_GITHUB = os.getenv("PASSWORD_GITHUB")
 GITHUB_USERNAME = "yashago"
