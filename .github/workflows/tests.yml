@@ -13,6 +13,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    environment: myEnvironment
     steps:
       - uses: actions/checkout@v5
 
@@ -28,7 +29,10 @@ jobs:
         run: playwright install --with-deps chromium
 
       - name: Run tests
-        run: pytest
+        env:
+          EMAIL_GITHUB: ${{ vars.EMAIL_GITHUB }}
+          PASSWORD_GITHUB: ${{ secrets.PASSWORD_GITHUB }}
+        run: pytest -sv
 
       - name: Upload report and failure artifacts
         if: always()
