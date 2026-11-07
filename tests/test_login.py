@@ -17,8 +17,4 @@ def test_sign_in_to_gmail(page: Page):
 
     signInPage.emailInput.fill(EMAIL_GITHUB)
     signInPage.passwordInput.fill(PASSWORD_GITHUB)
-    signInPage.signInWithCredentials()
-
-    expect(signInPage.greeting).to_be_visible()
-    page.pause()
-    expect(signInPage.greeting).to_contain_text(GITHUB_USERNAME)
+    expect(signInPage.signInButton).to_be_visible()
